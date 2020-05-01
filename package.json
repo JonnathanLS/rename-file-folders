@@ -4,12 +4,13 @@
   "description": "script to rename operating system files and folders",
   "main": "main",
   "scripts": {
-    "start": "node main.js",
+    "start": "node main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JonnathanLS",
   "license": "ISC",
   "devDependencies": {
-    "file-system": "^2.2.2"
+    "file-system": "^2.2.2",
+    "typescript": "^3.8.3"
   }
 }
