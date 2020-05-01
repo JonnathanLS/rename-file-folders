@@ -1,0 +1,15 @@
+{
+  "name": "rename-file-folders",
+  "version": "1.0.0",
+  "description": "script to rename operating system files and folders",
+  "main": "main",
+  "scripts": {
+    "exec": "node ./main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JonnathanLS",
+  "license": "ISC",
+  "devDependencies": {
+    "file-system": "^2.2.2"
+  }
+}

@@ -1,2 +1,3 @@
-# rename-file-folders
-script to rename operating system files and folders
+# Rename File Folders
+
+Script to rename operating system files and folders.
