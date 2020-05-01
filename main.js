@@ -1,21 +1,26 @@
 const fs = require('fs');
 
 
-const path = "/home/jonnathan/mega/estudos/my-projects/";
-getCurrentNames();
+const path = "./";
 
+fs.readdir(path,(error, values)=>{
+    listCurrentNames(path);
+    values.map(value => {
+        const newValue = value.toLowerCase();
+        rename(value, newValue); 
+    });
+    listCurrentNames(path);
+})
 
-// Test to rename the main.js file
-fs.rename('main.js', 'index.js', () => { 
-    log("\nFile Renamed!\n"); 
-    // List all the names after renaming 
-    getCurrentNames(path); 
-}); 
+// function that renames the names
+function rename(oldValue, newValue){
+    fs.renameSync(oldValue, newValue, () => log(`${value} changed to ${newValue}`)); 
+}
      
-// Function to get current names in root directory
-function getCurrentNames() { 
-    log("Current Names:"); 
-    fs.readdirSync(__dirname).forEach(value => log(value)); 
+// function to list current names in informed path 
+function listCurrentNames(path) { 
+    log("\nCurrent Names:\n"); 
+    fs.readdirSync(path).forEach(value => log(value)); 
 } 
 function log(data){ 
     console.log(data) 
