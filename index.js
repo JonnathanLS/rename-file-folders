@@ -4,6 +4,13 @@ const fs = require('fs');
 const path = "/home/jonnathan/mega/estudos/my-projects/";
 getCurrentNames();
 
+// fs.readdir(path,(error, values)=>{
+//     values.map(value => {
+//         const newValue = value.toLowerCase();
+//         fs.rename(value, newValue, () => log("\nChanged Names!\n")); 
+//     });
+//     getCurrentFilenames();
+// })
 
 // Test to rename the main.js file
 fs.rename('main.js', 'index.js', () => { 
