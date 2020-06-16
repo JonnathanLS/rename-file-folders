@@ -1,6 +1,28 @@
 import  { readdirSync, renameSync, existsSync, mkdirSync } from 'fs';
 
-export class Path{
+const REGEX = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+$/
+
+// PROXY IMPLEMENTATION
+// const handlerProxy: Object = {
+//     get: function(target: any, prop: string, receiver: any) {
+// 		if(['change'].includes(prop) && typeof(target[prop]) == typeof(Function)) {
+// 			return function() {
+// 				console.log("change")
+// 				// // ArquivoTeste Path 1
+// 				// const param: string = arguments[0];
+// 				// let previous: string = "";
+// 				// const isUpperCase = (e: string) => e === e.toUpperCase();
+// 				// const transform = (x: string) => isUpperCase(x) && previous.match(REGEX);
+// 				// let newParam = param.split("").map(x => transform(x) ? `-${x}` : x ).join("");
+// 				// console.log(target[prop], target, [newParam]);
+// 				Reflect.apply(target[prop], target, arguments);
+// 		 	}	
+// 		}
+// 		return Reflect.get(target, prop, receiver);
+//     }
+// };
+
+export class Path {
 	private contents: string[] = [];
 	private newPath: string;
 	
@@ -10,7 +32,6 @@ export class Path{
 			this.root = this.config(this.root);
 			this.newPath = this.destiny ? this.config(this.destiny) : this.config(this.root);
 			this.contents = readdirSync(this.root);
-			
 	}
 
 	private config = (root: string): string => 
@@ -30,15 +51,25 @@ export class Path{
 		})
 	}
 	private change(pathContent: string){
-		return pathContent
+		let previous: string = "";
+		const match = (str: string) => str.match(REGEX);
+		const isUpperCase = (e: string) => e === e.toUpperCase();
+		const transform = (x: string) => match(x) && isUpperCase(x) && match(previous);
+		let newPathContent = pathContent.split("").map(value => {
+			const newValue = transform(value) ? `-${value}` : value;
+			previous = value;
+			return newValue;
+		}).join("");
+		return newPathContent
 			.trim()
 			.toLowerCase() 
-			.replace('/[áàãâä]/ui', 'a')
-			.replace('/[éèêë]/ui', 'e')
-			.replace('/[íìîï]/ui', 'i')
-			.replace('/[óòõôö]/ui', 'o')
-			.replace('/[úùûü]/ui', 'u')
-			.replace('/[ç]/ui', 'c')
-			.replace(/( )+/g, '-') 
+			.replace(/( )+/g, '-');
+			// .replace('/[áàãâä]/ui', 'a')
+			// .replace('/[éèêë]/ui', 'e')
+			// .replace('/[íìîï]/ui', 'i')
+			// .replace('/[óòõôö]/ui', 'o')
+			// .replace('/[úùûü]/ui', 'u')
+			// .replace('/[ç]/ui', 'c')
+			 
 	}
 }

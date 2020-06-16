@@ -3,6 +3,10 @@
 /tmp
 /out-tsc
 
+# coverage
+/coverage.data
+/coverage/
+
 # dependencies
 /node_modules
 
@@ -11,7 +15,7 @@ chrome-profiler-events*.json
 speed-measure-plugin*.json
 
 # IDE - VSCode
-.vscode/*
+/.vscode
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
