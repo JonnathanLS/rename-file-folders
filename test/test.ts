@@ -32,3 +32,10 @@ test('should rename considering destination directory', () => {
     expect(readdirSync(`./test/${destiny}`).includes("folder-test-3")).toBeTruthy();
 });
 
+// test('should remove multiple hyphens and also at the beginning and end of the content', () => {
+//     Root.addFolder("-FolderTest-- 4-");
+//     const destiny = 'other-destiny';
+//     const path = new Path(ROOT, `./test/${destiny}`);
+//     path.renameContents();
+//     expect(readdirSync(`./test/${destiny}`).includes("folder-test-4")).toBeTruthy();
+// });

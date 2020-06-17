@@ -1,14 +1,12 @@
 {
   "name": "rename-file-folders",
-  "version": "0.0.3",
+  "version": "0.0.0",
   "description": "script to rename operating system files and folders",
   "main": "src/main.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/main.js",
     "test": "jest --coverage"
   },
-  "author": "JonnathanLS",
+  "author": "Jonnathan-ls",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.2",
