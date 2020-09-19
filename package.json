@@ -4,6 +4,8 @@
   "description": "script to rename operating system files and folders",
   "main": "src/main.ts",
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
     "test": "jest --coverage"
   },
   "author": "Jonnathan-ls",
